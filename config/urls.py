@@ -7,4 +7,5 @@ urlpatterns = [
     path('pybo/', include('pybo.urls')),
     path('common/', include('common.urls')),
     path('', views.index, name='index'),
+    path('CGPT/', include('CGPT.urls')),
 ]
