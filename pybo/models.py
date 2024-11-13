@@ -12,3 +12,6 @@ class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     content = models.TextField()
     create_date = models.DateTimeField()
+
+    class Meta:
+        db_table = 'answer_tb'
