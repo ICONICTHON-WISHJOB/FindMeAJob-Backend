@@ -8,13 +8,24 @@ from .forms import QuestionForm, AnswerForm
 from django.core.paginator import Paginator
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
+from django.db.models import Q
 
 def index(request):
     page = request.GET.get('page', 1)
+    kw = request.GET.get('kw', '')
     question_list = Question.objects.order_by('-create_date')
+    if kw:
+        question_list = question_list.filter(
+            Q(subject__icontains=kw) |  # 제 목 검 색
+            Q(content__icontains=kw) |  # 내 용 검 색
+            Q(answer__content__icontains=kw) |  # 답 변 내 용 검 색
+            Q(author__username__icontains=kw) |  # 질 문 글 쓴 이 검 색
+            Q(answer__author__username__icontains=kw)  # 답 변 글 쓴 이 검 색
+        ).distinct()
     paginator = Paginator(question_list, 10)
     page_obj = paginator.get_page(page)
     context = {'question_list' : page_obj}
+    context = {'question_list': page_obj, 'page': page, 'kw': kw}
     return render(request, 'pybo/question_list.html', context)
 
 def detail(request, question_id):
