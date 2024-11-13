@@ -16,7 +16,6 @@ from django.conf.global_settings import STATICFILES_DIRS
 
 from . import db_setting
 
-<<<<<<< HEAD
 import os
 from django.core.exceptions import ImproperlyConfigured
 
@@ -28,9 +27,6 @@ def get_env_variable(var_name):
         raise ImproperlyConfigured(error_msg)
 
 
-
-=======
->>>>>>> 5f467dac58fe0bfff94c236b6f70777cc9da6c38
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -54,11 +50,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-<<<<<<< HEAD
-#    'common.apps.CommonConfig',
-=======
     'common.apps.CommonConfig',
->>>>>>> 5f467dac58fe0bfff94c236b6f70777cc9da6c38
     'pybo.apps.PyboConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -102,7 +94,7 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-<<<<<<< HEAD
+
 # DATABASES = db_setting.DATABASES
 DATABASES = {
     'default': {
@@ -114,10 +106,6 @@ DATABASES = {
         'PORT': get_env_variable('DATABASE_PORT'),
     }
 }
-
-=======
-DATABASES = db_setting.DATABASES
->>>>>>> 5f467dac58fe0bfff94c236b6f70777cc9da6c38
 
 
 # Password validation
