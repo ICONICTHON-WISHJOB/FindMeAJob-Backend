@@ -12,9 +12,12 @@
 </head>
 <body>
     {% include "navbar.html" %}
-    <!-- Basic template-->
+    <!-- Basic template -->
     {% block content %}
     {% endblock %}
     <script src = "{% static 'bootstrap.min.js' %}"></script>
+    <!-- JS -->
+    {% block script %}
+    {% endblock %}
 </body>
 </html>
