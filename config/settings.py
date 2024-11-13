@@ -98,7 +98,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # DATABASES = db_setting.DATABASES
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',  # 사용 중인 데이터베이스 엔진에 맞게 수정하세요
+        # 'ENGINE': 'django.db.backends.mysql',  # 사용 중인 데이터베이스 엔진에 맞게 수정하세요
+        'ENGINE' : 'django.db.backends.postgresql',
         'NAME': get_env_variable('DATABASE_NAME'),
         'USER': get_env_variable('DATABASE_USER'),
         'PASSWORD': get_env_variable('DATABASE_PASSWORD'),
